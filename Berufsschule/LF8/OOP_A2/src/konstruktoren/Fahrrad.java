@@ -1,4 +1,4 @@
-package objekte.lf08_oop.objekte;
+package konstruktoren;
 
 public class Fahrrad {
     private String marke;
@@ -11,6 +11,13 @@ public class Fahrrad {
         this.gaenge = 1;
         this.aktuellerGang = 1;
         this.geschwindigkeit = 0.0;
+    }
+
+    public Fahrrad(String marke, int gaenge, int aktuellerGang, double geschwindigkeit) {
+        this.marke = marke;
+        this.gaenge = gaenge;
+        this.aktuellerGang = aktuellerGang;
+        this.geschwindigkeit = geschwindigkeit;
     }
 
     public String getMarke() {
@@ -94,25 +101,4 @@ public class Fahrrad {
         System.out.println("Aktueller Gang: " + aktuellerGang);
         System.out.println("Geschwindigkeit: " + geschwindigkeit + " km/h");
     }
-
-    public static void main(String[] args) {
-        Fahrrad meinFahrrad = new Fahrrad();
-
-        meinFahrrad.setMarke("Trek");
-        meinFahrrad.setGaenge(21);
-        meinFahrrad.setAktuellerGang(1);
-        meinFahrrad.setGeschwindigkeit(0);
-
-        meinFahrrad.anzeigen();
-        System.out.println();
-
-        meinFahrrad.beschleunigen(15);
-        meinFahrrad.gangHochschalten();
-        meinFahrrad.beschleunigen(10);
-        meinFahrrad.gangRunterschalten();
-        System.out.println();
-
-        meinFahrrad.anzeigen();
-    }
-
 }
