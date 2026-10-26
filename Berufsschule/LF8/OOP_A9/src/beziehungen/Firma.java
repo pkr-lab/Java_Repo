@@ -1,13 +1,17 @@
 package beziehungen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Firma {
     private String name;
     private String adresse;
-    private LKW lkw;
+    private List<LKW> fuhrpark;
 
     public Firma(String name, String adresse) {
         this.name = name;
         this.adresse = adresse;
+        this.fuhrpark = new ArrayList<>();
     }
 
     public String getName() {
@@ -18,17 +22,24 @@ public class Firma {
         return adresse;
     }
 
-    public LKW getLkw() {
-        return lkw;
+    public List<LKW> getFuhrpark() {
+        return fuhrpark;
     }
 
-    public void setLkw(LKW lkw) {
-        this.lkw = lkw;
+    public void fuhrparkHinzufuegen(LKW lkw) {
+        fuhrpark.add(lkw);
+    }
+
+    public void fuhrparkEntfernen(LKW lkw) {
+        fuhrpark.remove(lkw);
     }
 
     public void anzeigen() {
         System.out.println("Name: " + name);
         System.out.println("Adresse: " + adresse);
-        System.out.println("LKW-Kennzeichen: " + lkw.getKennzeichen());
+        System.out.println("Anzahl LKW im Fuhrpark: " + fuhrpark.size());
+        for (LKW lkw : fuhrpark) {
+            System.out.println("  - " + lkw.getKennzeichen());
+        }
     }
 }
